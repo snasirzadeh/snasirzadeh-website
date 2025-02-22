@@ -23,7 +23,6 @@ jobs:
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: ${{ secrets.HOST_PORT }}
-        fingerprint: ed25519
         passphrase: ${{ secrets.SSH_KEY_PASSPHRASE }}
         script: 
           cd github/snasirzadeh-website/
