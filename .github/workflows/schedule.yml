@@ -27,4 +27,3 @@ jobs:
           cd github/snasirzadeh-website/
           git pull origin master
           git status
-          npm install --only=prod
