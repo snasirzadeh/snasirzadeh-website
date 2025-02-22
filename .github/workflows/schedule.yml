@@ -22,9 +22,9 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
-        port: 22
+        port: 8546
         script: |
-          cd /var/www/youtube.com/
-          git pull origin main
+          cd github/snasirzadeh-website/
+          git pull origin master
           git status
           npm install --only=prod
