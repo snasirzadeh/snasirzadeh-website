@@ -22,9 +22,10 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
-        port: 8546
+        port: ${{ secrets.HOST_PORT }}
         fingerprint: ed25519
-        script: |
+        passphrase: ${{ secrets.SSH_KEY_PASSPHRASE }}
+        script: 
           cd github/snasirzadeh-website/
           git pull origin master
           git status
