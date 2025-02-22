@@ -25,6 +25,5 @@ jobs:
         port: ${{ secrets.HOST_PORT }}
         passphrase: ${{ secrets.SSH_KEY_PASSPHRASE }}
         script: 
-          cd github/snasirzadeh-website/
-          git pull origin master
-          git status
+          cd /var/www/
+          ls -la
