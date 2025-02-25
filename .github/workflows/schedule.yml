@@ -19,6 +19,6 @@ jobs:
         echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
         ssh-keyscan -H ${{ secrets.HOST }} > ~/.ssh/known_hosts
     - name: connect and pull
-      run: ssh ${{ secrets.HOST_USERNAME }}@${{ secrets.HOST }} "cd ~/github/snasirzadeh-website && git status && exit"
+      run: ssh ${{ secrets.HOST_USERNAME }}@${{ secrets.HOST }} -p ${{ secrets.HOST_PORT }} "cd ~/github/snasirzadeh-website && git status && exit"
     - name: cleanup
       run: rm -rf ~/.ssh
