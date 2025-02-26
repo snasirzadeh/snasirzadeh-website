@@ -25,7 +25,7 @@ jobs:
       run: bash -c "echo test"
     - name: Configure ssh key
       run: |
-          bash -c "echo '${{ secrets.SSH_PRIVATE_KEY }}' > ~/.ssh/keys/sepehr1"
+          bash -c "echo ${{ secrets.SSH_PRIVATE_KEY }} > ~/.ssh/keys/sepehr1"
           bash -c "chmod 400 ~/.ssh/keys/sepehr1"
           ssh sepehr1
           pwd
