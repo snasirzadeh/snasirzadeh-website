@@ -20,7 +20,7 @@ jobs:
         bash -c "echo '    User debian' >> ~/.ssh/config"
         bash -c "echo '    Hostname ${{ secrets.HOST }}' >> ~/.ssh/config"
         bash -c "echo '    Port ${{ secrets.HOST_PORT }}' >> ~/.ssh/config"
-        bash -c "echo '    IdentifyFile ~/.ssh/keys/sepehr1' >> ~/.ssh/config"
+        bash -c "echo '    IdentityFile ~/.ssh/keys/sepehr1' >> ~/.ssh/config"
     - name: Add sepehr1 host key
       run: bash -c "echo test"
     - name: Configure ssh key
