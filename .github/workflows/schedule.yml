@@ -16,15 +16,16 @@ jobs:
     - name: Configure ssh config
       run: |
         bash -c "mkdir -p /root/.ssh/keys"
-        bash -c "echo 'Host sepehr1' > /root/.ssh/config"
-        bash -c "echo '    User debian' >> /root/.ssh/config"
-        bash -c "echo '    Hostname ${{ secrets.HOST }}' >> /root/.ssh/config"
-        bash -c "echo '    Port ${{ secrets.HOST_PORT }}' >> /root/.ssh/config"
-        bash -c "echo '    IdentifyFile ~/.ssh/keys/sepehr1' >> /root/.ssh/config"
+        bash -c "echo 'Host sepehr1' > ~/.ssh/config"
+        bash -c "echo '    User debian' >> ~/.ssh/config"
+        bash -c "echo '    Hostname ${{ secrets.HOST }}' >> ~/.ssh/config"
+        bash -c "echo '    Port ${{ secrets.HOST_PORT }}' >> ~/.ssh/config"
+        bash -c "echo '    IdentifyFile ~/.ssh/keys/sepehr1' >> ~/.ssh/config"
     - name: Add sepehr1 host key
       run: bash -c "echo test"
     - name: Configure ssh key
       run: |
-          bash -c "echo '${{ secrets.SSH_PRIVATE_KEY }}' > /root/.ssh/keys/sepehr1"
-          bash -c "chmod 400 /root/.ssh/keys/sepehr1"
+          bash -c "echo '${{ secrets.SSH_PRIVATE_KEY }}' > ~/.ssh/keys/sepehr1"
+          bash -c "chmod 400 ~/.ssh/keys/sepehr1"
           ssh sepehr1
+          pwd
