@@ -21,12 +21,12 @@ jobs:
         bash -c "echo '    Hostname ${{ secrets.HOST }}' >> ~/.ssh/config"
         bash -c "echo '    Port ${{ secrets.HOST_PORT }}' >> ~/.ssh/config"
         bash -c "echo '    IdentityFile ~/.ssh/keys/sepehr1' >> ~/.ssh/config"
-        cat 
     - name: Add sepehr1 host key
       run: ssh-keyscan -p ${{ secrets.HOST_PORT }} ${{ secrets.HOST }} > ~/.ssh/known_hosts
     - name: Configure ssh key
       run: |
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/keys/sepehr1
           chmod 400 ~/.ssh/keys/sepehr1
-          ssh sepehr1
+          ssh -T sepehr1
           pwd
+          whoami
