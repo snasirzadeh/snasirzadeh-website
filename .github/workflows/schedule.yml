@@ -27,6 +27,9 @@ jobs:
       run: |
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/keys/sepehr1
           chmod 400 ~/.ssh/keys/sepehr1
-          ssh -T sepehr1
+    - name: Run commands
+      run: |
           pwd
           whoami
+    - name: Remove ssh key
+      run: rm ~/.ssh/keys/sepehr1
