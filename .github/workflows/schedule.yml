@@ -23,7 +23,7 @@ jobs:
         bash -c "echo '    IdentityFile ~/.ssh/keys/sepehr1' >> ~/.ssh/config"
         cat 
     - name: Add sepehr1 host key
-      run: bash -c "echo test"
+      run: ssh-keyscan -p ${{ secrets.HOST_PORT }} ${{ secrets.HOST }} > ~/.ssh/known_hosts
     - name: Configure ssh key
       run: |
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/keys/sepehr1
