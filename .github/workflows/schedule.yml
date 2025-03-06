@@ -29,7 +29,7 @@ jobs:
           chmod 400 ~/.ssh/keys/sepehr1
     - name: Run commands
       run: |
-          ssh sepehr1 << 'EOF'
+          ssh -t sepehr1 << 'EOF'
             cd ~/github/snasirzadeh-website
             git pull origin master
             git status
