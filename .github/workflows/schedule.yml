@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Configure ssh config
+    - name: Configure ssh config file
       run: |
         bash -c "mkdir -p ~/.ssh/keys"
         bash -c "echo 'Host sepehr1' > ~/.ssh/config"
@@ -21,14 +21,18 @@ jobs:
         bash -c "echo '    Hostname ${{ secrets.HOST }}' >> ~/.ssh/config"
         bash -c "echo '    Port ${{ secrets.HOST_PORT }}' >> ~/.ssh/config"
         bash -c "echo '    IdentityFile ~/.ssh/keys/sepehr1' >> ~/.ssh/config"
-    - name: Add sepehr1 host key
-      run: ssh-keyscan -p ${{ secrets.HOST_PORT }} ${{ secrets.HOST }} > ~/.ssh/known_hosts
+        chmod 600 ~/.ssh/config
+
     - name: Configure ssh key
       run: |
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/keys/sepehr1
           chmod 400 ~/.ssh/keys/sepehr1
     - name: Run commands
       run: |
-          ssh sepehr1 cd ~/github/snasirzadeh-website && git pull origin master
+          ssh sepehr1 << 'EOF'
+            cd ~/github/snasirzadeh-website
+            git pull origin master
+            git status
+          EOF
     - name: Remove ssh key
       run: rm ~/.ssh/keys/sepehr1
