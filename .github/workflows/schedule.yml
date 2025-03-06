@@ -34,5 +34,6 @@ jobs:
     - name: Run commands
       run: |
         ssh sepehr1 'cd ~/github/snasirzadeh-website && git pull origin master && git status'
+
     - name: Remove ssh key
       run: rm ~/.ssh/keys/sepehr1
