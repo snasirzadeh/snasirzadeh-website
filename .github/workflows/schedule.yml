@@ -33,8 +33,6 @@ jobs:
             chmod 400 ~/.ssh/keys/sepehr1
 
       - name: Run commands
-        run: |
-          ssh sepehr1 'cd ~/github/snasirzadeh-website && git pull origin master && git status'
-
+        run: ssh sepehr1 'git -C ~/github/snasirzadeh-website/ pull --stat origin master'
       - name: Remove ssh key
         run: rm ~/.ssh/keys/sepehr1
