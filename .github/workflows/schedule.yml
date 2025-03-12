@@ -32,6 +32,6 @@ jobs:
             chmod 400 ~/.ssh/keys/sepehr1
 
       - name: Run commands
-        run: scp -P ${{ secrets.HOST_PORT}} ./ debian@${{ secrets.HOST }}:/home/debian/scp_test/
+        run: scp ./index.html sepehr1:/home/debian/scp_test/
       - name: Remove ssh key
         run: rm ~/.ssh/keys/sepehr1
