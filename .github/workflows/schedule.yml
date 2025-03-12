@@ -1,4 +1,3 @@
----
 name: Deploy snasirzadeh website
 
 on:
@@ -33,6 +32,6 @@ jobs:
             chmod 400 ~/.ssh/keys/sepehr1
 
       - name: Run commands
-        run: ssh sepehr1 'git -C ~/github/snasirzadeh-website/ pull --stat origin master'
+        run: scp -r ./ sepehr1:/home/debian/scp_test/
       - name: Remove ssh key
         run: rm ~/.ssh/keys/sepehr1
