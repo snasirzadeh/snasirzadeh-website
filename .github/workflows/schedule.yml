@@ -38,7 +38,7 @@ jobs:
             SOURCE_DIR="."
             rsync -avz \
             --exclude='.*' \
-            --exclude='README.me' \
+            --exclude='README.md' \
             --exclude='LICENSE' \
             $SOURCE_DIR sepehr1:/home/debian/rsync_test/ 
       - name: Remove ssh key
