@@ -34,6 +34,11 @@ jobs:
             chmod 400 ~/.ssh/keys/sepehr1
 
       - name: Run commands
-        run: scp -r ./ sepehr1:/home/debian/scp_test/
+        run: |
+            rsync -avz \
+            --exclude='.*' \
+            --exclude='README' \
+            --exclude='LICENSE' \
+            sepehr1:/home/debian/rsync_test/ 
       - name: Remove ssh key
         run: rm ~/.ssh/keys/sepehr1
